@@ -1,0 +1,10 @@
+<input
+type="text"
+class="form-control"
+[(ngModel)]="username">
+<p> {{username}} </p>
+
+<!-- Just so you can set the text to whatever you want -->
+<button class="btn btn-primary"
+[disabled]="username==''"
+(click)="deleteText('')">delete</button>

@@ -1,0 +1,5 @@
+<button class="btn btn-primary" (click)="toggleDisplay()">Display Details</button>
+<p *ngIf="display">Meaning of life is 42</p>
+<P *ngFor="let list of clicks; let i = index"
+[ngStyle]="{backgroundColor: i > 4 ? 'blue' : 'transparent'}"
+[ngClass]="{'dText': list >= 5}">{{ list }}</P>
