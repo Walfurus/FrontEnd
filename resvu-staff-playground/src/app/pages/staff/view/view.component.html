@@ -1,0 +1,36 @@
+<button mat-flat-button (click)="routeToAddStaff()" color="accent">
+  Add Staff
+</button>
+
+<div class="container">
+  <ngx-auto-table
+    [config]="config"
+    [columnDefinitions]="{
+      name: { header: 'Staff Name', template: nameTemplate },
+      email: {}
+    }"
+  >
+    <ng-template #nameTemplate let-row>
+      <p style="color:red;">{{ row.name }}</p>
+    </ng-template>
+  </ngx-auto-table>
+</div>
+
+<!-- <div *ngIf="!!(staff$ | async); else loading">
+  <div *ngIf="!!(staff$ | async)?.length; else noStaff">
+    <div *ngFor="let staff of staff$ | async">
+      {{ staff.email }}
+      {{ staff.name }}
+      {{ staff.phone }}
+      {{ staff.position }}
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading staff...</p>
+</ng-template>
+
+<ng-template #noStaffazd>
+  <p>No staff membssers faasdound!</p>
+</ng-template> -->

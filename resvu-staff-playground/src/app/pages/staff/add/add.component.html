@@ -1,0 +1,11 @@
+<div class="container">
+  <form (submit)="onAddStaff()" [formGroup]="createStaffForm">
+    <mat-form-field appearance="outline">
+      <input formControlName="name" matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input formControlName="email" matInput placeholder="Email">
+    </mat-form-field>
+    <button [disabled]="submitted" mat-flat-button type="submit" color="primary">Submit</button>
+  </form>
+</div>

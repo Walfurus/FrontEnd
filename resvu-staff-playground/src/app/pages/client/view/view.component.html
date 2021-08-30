@@ -1,0 +1,17 @@
+<button mat-flat-button (click)="routeToAddClient()" color="accent">
+    Add Client
+  </button>
+  
+  <div class="container">
+    <ngx-auto-table
+      [config]="config"
+      [columnDefinitions]="{
+        name: { header: 'Client Name', template: nameTemplate },
+        email: {}
+      }"
+    >
+      <ng-template #nameTemplate let-row>
+        <p style="color:#1f1e33;">{{ row.name }}</p>
+      </ng-template>
+    </ngx-auto-table>
+  </div>

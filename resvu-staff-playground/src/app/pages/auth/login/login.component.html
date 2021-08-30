@@ -1,0 +1,16 @@
+<mat-card class="auth-card">
+  <div class="logo-container">
+    <img src="assets/images/logo.png" />
+  </div>
+  <form (submit)="submitForm()" [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+      <input formControlName="email" matInput placeholder="Email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input formControlName="password" matInput type="password" placeholder="Password">
+    </mat-form-field>
+    <button mat-flat-button color="primary" [disabled]="!this.loginForm.valid" type="submit">Login</button>
+  </form>
+  <hr>
+  <p class="register-link">Don't have an account, Register Here?</p>
+</mat-card>

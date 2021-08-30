@@ -1,0 +1,11 @@
+<div class="container">
+    <form [formGroup]="createClientForm">
+      <mat-form-field appearance="outline">
+        <input formControlName="name" matInput placeholder="Name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input formControlName="phone" matInput placeholder="Phone">
+      </mat-form-field>
+      <button mat-flat-button type="submit" color="primary">Submit</button>
+    </form>
+  </div>
