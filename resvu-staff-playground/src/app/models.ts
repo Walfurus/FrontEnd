@@ -18,6 +18,7 @@ export interface Staff {
 export interface Client {
   id: string;
   name: string;
-  nation: string;
+  phone: string;
+  // nation: string;
   residents: string;
 }

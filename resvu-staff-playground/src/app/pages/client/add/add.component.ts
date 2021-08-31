@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FireStateFacade } from 'src/app/services/firecache.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { matchValidator } from 'src/app/shared/match.directive';
 
 @Component({
   selector: 'app-add-client',
@@ -21,8 +22,26 @@ export class AddClientComponent implements OnInit {
   ngOnInit(): void {
     this.createClientForm = new FormGroup({
       name: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required, Validators.email]),
+      pconfirm: new FormControl('', [Validators.required]),
+    }, {
+      validators: matchValidator('phone', 'pconfirm'),
     });
   }
 
+  async onAddClient() {
+    if (!this.createClientForm.valid) {
+      console.log('Form not valid');
+      this.sb.errorSnack('Please ensure all fields have a value!');
+      return;
+    }
+
+    try {
+      const formData = this.createClientForm.value;
+      await this.fires.FromCollection(this.fires.CollectionPaths.AllClientMembers).Add(formData);
+      await this.router.navigate(['main/client/view']);
+    } catch (e) {
+      throw e;
+    }
+  }
 }

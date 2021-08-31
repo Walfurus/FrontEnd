@@ -19,4 +19,7 @@ export class DashboardComponent implements OnInit {
     await this.router.navigate(['main/staff/view'])
   }
 
+  async routeToClient() {
+    await this.router.navigate(['main/client/view'])
+  }
 }

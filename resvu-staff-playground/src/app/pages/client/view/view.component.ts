@@ -22,7 +22,7 @@ export class ViewClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.clients = this.fires.FromCollection(this.fires.CollectionPaths.AllStaffMembers).GetAllDocsSnap<Client>();
+    this.clients = this.fires.FromCollection(this.fires.CollectionPaths.AllClientMembers).GetAllDocsSnap<Client>();
     this.config = {
       data$: this.clients,
       actionsVisibleCount: 1,
@@ -49,7 +49,7 @@ export class ViewClientComponent implements OnInit {
 
   async onDeleteClientBulk(c: Client[]) {
     await Promise.all(c.map(async client => {
-      await this.fires.FromCollection(this.fires.CollectionPaths.AllStaffMembers).DeleteId(client.id as string);
+      await this.fires.FromCollection(this.fires.CollectionPaths.AllClientMembers).DeleteId(client.id as string);
     }));
   }
 

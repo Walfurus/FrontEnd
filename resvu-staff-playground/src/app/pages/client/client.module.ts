@@ -34,5 +34,7 @@ const routes: Routes = [
       AutoTableModule,
     ],
   })
-  export class StaffModule { }
+  export class ClientModule {
+    
+  }
   
