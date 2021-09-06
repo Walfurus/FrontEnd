@@ -33,11 +33,11 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         loadChildren: () =>
           import('./pages/auth/auth.module').then((m) => m.AuthModule),
       },
-      { path: '**', redirectTo: 'login' },
+      { path: '**', redirectTo: '' },
     ],
   },
   { path: '**', redirectTo: 'main' },

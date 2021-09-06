@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const formValue = this.loginForm.value
+    const formValue = this.loginForm.value;
     try {
       await this.fires.app.login(formValue.email, formValue.password);
       await this.router.navigate(['main/users']);
@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
       console.log('LOGIN ERROR',e);
       this.sb.errorSnack('Invalid login details.')
     }
+  }
+
+  async routeToRegister() {
+    await this.router.navigate(['auth/register'])
   }
 
 }

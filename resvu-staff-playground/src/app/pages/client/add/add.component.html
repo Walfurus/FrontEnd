@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="createClientForm">
+    <form (submit)="onAddClient()" [formGroup]="createClientForm">
       <mat-form-field appearance="outline">
         <input formControlName="name" matInput placeholder="Name">
       </mat-form-field>

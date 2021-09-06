@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FireStateFacade } from 'src/app/services/firecache.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private fires: FireStateFacade,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -21,5 +23,15 @@ export class DashboardComponent implements OnInit {
 
   async routeToClient() {
     await this.router.navigate(['main/client/view'])
+  }
+
+  async logout() {
+    try {
+      await this.fires.app.appSDK.auth().signOut();
+      await this.router.navigate(['../auth/login'])
+    } catch (e) {
+      throw(e);
+    }
+    
   }
 }

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FireStateFacade } from 'src/app/services/firecache.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { matchValidator } from 'src/app/shared/match.directive';
+import { matchFieldRegex } from 'src/app/shared/match.directive';
 
 @Component({
   selector: 'app-add-client',
@@ -22,10 +22,10 @@ export class AddClientComponent implements OnInit {
   ngOnInit(): void {
     this.createClientForm = new FormGroup({
       name: new FormControl('', Validators.required),
-      phone: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [Validators.required]),
       pconfirm: new FormControl('', [Validators.required]),
     }, {
-      validators: matchValidator('phone', 'pconfirm'),
+      validators: matchFieldRegex('phone', 'pconfirm',/^(?!0+$)(?:\(?\+\d{1,3}\)?[- ]?|0)?\d{10}$/gm),
     });
   }
 

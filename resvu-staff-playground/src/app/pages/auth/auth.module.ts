@@ -4,19 +4,24 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
   },
-  { path: '', redirectTo: '', pathMatch: 'full' }
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     FormsModule,
