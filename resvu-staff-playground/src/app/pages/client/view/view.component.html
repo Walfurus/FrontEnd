@@ -6,12 +6,12 @@
     <ngx-auto-table
       [config]="config"
       [columnDefinitions]="{
-        name: { header: 'Client Name', template: nameTemplate },
-        phone: {}
+        name: { header: 'Client Name' },
+        phone: { header: 'Phone Number', template: phoneTemplate}
       }"
     >
-      <ng-template #nameTemplate let-row>
-        <p style="color:#1f1e33;">{{ row.name }}</p>
+      <ng-template #phoneTemplate let-row>
+        <p style="color:#1f1e33;">{{ row.phone }}</p>
       </ng-template>
     </ngx-auto-table>
   </div>

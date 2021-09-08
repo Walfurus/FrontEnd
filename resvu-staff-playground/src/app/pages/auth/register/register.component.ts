@@ -12,6 +12,9 @@ import { matchFieldRegex } from 'src/app/shared/match.directive';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  showPass: Boolean = false; 
+  showConf: Boolean = false;
+
   constructor(
     private fires: FireStateFacade,
     private router: Router,

@@ -21,10 +21,18 @@
   cursor: pointer;
 }
 
+.register-link:hover {
+  color: #319941;
+}
+
 .field {
   position: inherit;
   display: list-item;
   list-style: none;
+}
+
+.vis-icon {
+  cursor: pointer;
 }
 
 .submit {

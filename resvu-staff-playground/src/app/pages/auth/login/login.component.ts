@@ -11,6 +11,8 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  showPass: Boolean = false;
+
   constructor(
     private fires: FireStateFacade,
     private router: Router,
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
   initForms() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required])
     })
   }
 

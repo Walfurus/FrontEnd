@@ -1,5 +1,3 @@
-import { formatCurrency } from "@angular/common";
-import { stringify } from "@angular/compiler/src/util";
 import { AbstractControl, ControlContainer, ValidationErrors, ValidatorFn } from "@angular/forms"
 
 export function matchFieldRegex(field1: string, field2: string, exp: RegExp):
@@ -14,7 +12,7 @@ ValidatorFn {
 
         if (!origin.match(exp) || origin !== check) {
             if (!origin.match(exp) && origin !== check) {
-                control.get(field1)?.setErrors({nmatch: true});
+                control.get(field1)?.setErrors({pmatch: true});
                 control.get(field2)?.setErrors({nmatch: true});
                 return {bothMismatch: true};
             }
@@ -25,7 +23,7 @@ ValidatorFn {
             } else {
                 control.get(field2)?.setErrors(null);
             }
-            control.get(field1)?.setErrors({nmatch: true});
+            control.get(field1)?.setErrors({pmatch: true});
             return {regMismatch: true};
         }
         control.get(field1)?.setErrors(null);

@@ -19,6 +19,14 @@
     cursor: pointer;
 }
 
+.login-link:hover {
+    color: #319941;
+  }
+
+.vis-icon {
+    cursor: pointer;
+}
+
 .field {
     position: inherit;
     display: list-item;
@@ -26,5 +34,5 @@
 }
 
 .submit {
-    text-align: center;
+    margin-top: 5px;
 }

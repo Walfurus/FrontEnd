@@ -19,6 +19,4 @@ export interface Client {
   id: string;
   name: string;
   phone: string;
-  // nation: string;
-  residents: string;
 }
