@@ -8,12 +8,12 @@ import { matchFieldRegex } from 'src/app/shared/match.directive';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  showPass: Boolean = false; 
-  showConf: Boolean = false;
+  showPass = false;
+  showConf = false;
 
   constructor(
     private fires: FireStateFacade,
@@ -29,15 +29,15 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      confirm: new FormControl('', [Validators.required])
+      confirm: new FormControl('', [Validators.required]),
     }, {
-      validators: matchFieldRegex('password','confirm',/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/gm)
-    })
+      validators: matchFieldRegex('password', 'confirm', /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/gm),
+    });
   }
 
   async submitForm() {
     if (!this.registerForm.valid) {
-      this.sb.errorSnack('Please ensure all required fields have a value.')
+      this.sb.errorSnack('Please ensure all required fields have a value.');
       return;
     }
 
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async routeToLogin() {
-    await this.router.navigate(['auth/login'])
+    await this.router.navigate(['auth/login']);
   }
 
 }

@@ -1,4 +1,4 @@
-import { AbstractControl, ControlContainer, ValidationErrors, ValidatorFn } from "@angular/forms"
+import { AbstractControl, ControlContainer, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function matchFieldRegex(field1: string, field2: string, exp: RegExp):
 ValidatorFn {

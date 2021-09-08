@@ -7,11 +7,11 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  showPass: Boolean = false;
+  showPass = false;
 
   constructor(
     private fires: FireStateFacade,
@@ -25,13 +25,13 @@ export class LoginComponent implements OnInit {
   initForms() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required])
-    })
+      password: new FormControl('', [Validators.required]),
+    });
   }
 
   async submitForm() {
-    if(!this.loginForm.valid) {
-      this.sb.errorSnack('Please ensure all required fields have a value.')
+    if (!this.loginForm.valid) {
+      this.sb.errorSnack('Please ensure all required fields have a value.');
       return;
     }
 
@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
       await this.fires.app.login(formValue.email, formValue.password);
       await this.router.navigate(['main/users']);
     } catch (e) {
-      console.log('LOGIN ERROR',e);
-      this.sb.errorSnack('Invalid login details.')
+      console.log('LOGIN ERROR', e);
+      this.sb.errorSnack('Invalid login details.');
     }
   }
 
   async routeToRegister() {
-    await this.router.navigate(['auth/register'])
+    await this.router.navigate(['auth/register']);
   }
 
 }

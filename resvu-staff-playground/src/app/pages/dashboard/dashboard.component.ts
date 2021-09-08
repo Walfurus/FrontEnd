@@ -5,7 +5,7 @@ import { FireStateFacade } from 'src/app/services/firecache.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
 
@@ -18,20 +18,19 @@ export class DashboardComponent implements OnInit {
   }
 
   async routeToStaff() {
-    await this.router.navigate(['main/staff/view'])
+    await this.router.navigate(['main/staff/view']);
   }
 
   async routeToClient() {
-    await this.router.navigate(['main/client/view'])
+    await this.router.navigate(['main/client/view']);
   }
 
   async logout() {
     try {
       await this.fires.app.appSDK.auth().signOut();
-      await this.router.navigate(['../auth/login'])
+      await this.router.navigate(['../auth/login']);
     } catch (e) {
       throw(e);
     }
-    
   }
 }

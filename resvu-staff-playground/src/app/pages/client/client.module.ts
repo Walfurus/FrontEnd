@@ -1,11 +1,11 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule, Routes } from "@angular/router";
-import { AutoTableModule } from "ngx-auto-table";
-import { MaterialModule } from "src/app/shared/material/material.module";
-import { AddClientComponent } from "./add/add.component";
-import { ViewClientComponent } from "./view/view.component";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { AutoTableModule } from 'ngx-auto-table';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { AddClientComponent } from './add/add.component';
+import { ViewClientComponent } from './view/view.component';
 
 const routes: Routes = [
     {
@@ -35,6 +35,5 @@ const routes: Routes = [
     ],
   })
   export class ClientModule {
-    
+
   }
-  

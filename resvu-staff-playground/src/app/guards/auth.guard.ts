@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { FireStateFacade } from '../services/firecache.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   constructor(private fires: FireStateFacade, private router: Router) {}

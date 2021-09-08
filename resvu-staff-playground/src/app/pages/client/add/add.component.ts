@@ -8,7 +8,7 @@ import { matchFieldRegex } from 'src/app/shared/match.directive';
 @Component({
   selector: 'app-add-client',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  styleUrls: ['./add.component.scss'],
 })
 export class AddClientComponent implements OnInit {
 
@@ -25,7 +25,7 @@ export class AddClientComponent implements OnInit {
       phone: new FormControl('', [Validators.required]),
       pconfirm: new FormControl('', [Validators.required]),
     }, {
-      validators: matchFieldRegex('phone', 'pconfirm',/^(?!0+$)(?:\(?\+\d{1,3}\)?[- ]?|0)?\d{10}$/gm),
+      validators: matchFieldRegex('phone', 'pconfirm', /^(?!0+$)(?:\(?\+\d{1,3}\)?[- ]?|0)?\d{10}$/gm),
     });
   }
 
